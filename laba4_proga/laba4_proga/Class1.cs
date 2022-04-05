@@ -9,23 +9,17 @@ namespace laba4_proga
         private static ATS instance;
         private int numberOfSubscribers; // число абонентов
         private string address; // адрес АТС
-        private int payment; // абонетская плата 
+        
+        public Rate rate;
         public int CalculationOfPayments()
         {
-            return numberOfSubscribers * payment;
+            return numberOfSubscribers * rate.GetPayment();
         }
         public int CalculationOfPayments(int N) // перегрузка метода
         {
-            return N*payment;
+            return N*rate.GetPayment();
         }
-        public int GetPayment()
-        {
-            return payment;
-        }
-        public void SetPayment(int payment)
-        {
-            this.payment = payment;
-        }
+        
         public string GetAddress()
         {
             return this.address;
@@ -39,8 +33,9 @@ namespace laba4_proga
         public ATS()
         {
             this.numberOfSubscribers = 0;
-            this.payment = 0;
+            //this.payment = 0;
             this.address = "Пустой";
+            this.rate = new Rate(0);
         }
         
 
@@ -48,7 +43,8 @@ namespace laba4_proga
         {
             this.numberOfSubscribers = number;
             this.address = address;
-            this.payment = payment;
+            rate = new Rate(payment);
+            //this.payment = payment;
         }
 
         public static ATS getInstatnce(int number, string address, int payment)
@@ -66,21 +62,42 @@ namespace laba4_proga
             return instance;
         }
 
+        public void tariffChange(int payment_m)
+        {
+            rate.SetPayment(payment_m);
+        }
+
+        
+
+
+
+
+
     }
 
 
     public  class Rate
     {
+
+       
         
-        public ATS ats;
-        public void tariffChange(int payment_m)
+        private int payment; // абонентская плата 
+
+        public int GetPayment()
         {
-            ats.SetPayment(payment_m);
+            return payment;
+        }
+        public void SetPayment(int payment)
+        {
+            this.payment = payment;
         }
 
-        public Rate(int number, string address, int payment)
+        
+
+        public Rate(int payment)
         {
-            ats = ATS.getInstatnce(number, address, payment);
+           
+            this.payment = payment;
         }
 
     }
