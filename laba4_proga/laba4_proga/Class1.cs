@@ -82,6 +82,7 @@ namespace laba4_proga
        
         
         private int payment; // абонентская плата 
+        
 
         public int GetPayment()
         {

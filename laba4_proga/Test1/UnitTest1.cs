@@ -13,7 +13,7 @@ namespace Test1
            
             ATS d = new ATS(1, "ул. Мельникайте 7, Минск", 5000);
             int a = d.CalculationOfPayments();
-            Assert.Equal(5000, a);
+            Assert.Equal(5000, a);  
 
         }
 
