@@ -112,13 +112,5 @@ namespace TestProject1
             long sumAll = ats.TotalCoastOfATS();
             Assert.Equal(3224, sumAll);
         }
-
-
-
-
-
-
-
-
     }
 }
