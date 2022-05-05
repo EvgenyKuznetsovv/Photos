@@ -142,7 +142,7 @@ namespace laba5_proga
     }
 
 
-    public enum ClientType
+    public enum ClientType // перечисление
     {
         VIP,
         Standard
